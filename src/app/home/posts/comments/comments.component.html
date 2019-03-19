@@ -1,0 +1,7 @@
+<app-create-comment [postId]="postId"></app-create-comment>
+
+<app-comment
+  *ngFor="let comment of commentsArray"
+  [comment]="comment"
+  [postId]="postId"
+></app-comment>

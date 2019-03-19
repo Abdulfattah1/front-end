@@ -1,0 +1,46 @@
+.heading-1 {
+  text-transform: uppercase;
+  font-family: $font-family;
+  font-size: $font-size-2;
+  color: $primary-color-1;
+  font-weight: 800;
+}
+
+.heading-2 {
+  font-family: $font-family;
+  font-size: $font-size-6;
+  color: $black-3;
+  font-weight: 700;
+}
+
+.heading-3 {
+  font-family: $font-family;
+  font-size: $font-size-5;
+  color: #73b7ae;
+  word-spacing: 5px;
+  text-transform: capitalize;
+  font-weight: 400;
+}
+
+.user-name {
+  text-decoration: none;
+  font-family: $font-family;
+  font-size: 1.4rem;
+  color: $black-3;
+  font-weight: 700;
+}
+
+.post-time {
+  font-family: $font-family;
+  font-size: 1.2rem;
+  color: $black-2;
+  font-weight: 400;
+}
+
+.post-text {
+  font-family: $font-family;
+  font-size: 1.38rem;
+  line-height: 18px;
+  color: $black-3;
+  font-weight: 400;
+}

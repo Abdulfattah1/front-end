@@ -1,0 +1,25 @@
+<form class="form__group" (submit)="submit()" [formGroup]="commentForm">
+  <div class="create-comment">
+    <div class="user-box">
+      <img src="../assets/man.png" alt="user photo" class="user-box__photo" />
+    </div>
+    <input
+      type="text"
+      placeholder="write a comment"
+      class="form__control mr-1"
+      formControlName="comment"
+    />
+    <button
+      type="submit"
+      class="btn btn__quaternary"
+      [disabled]="!commentForm.valid"
+    >
+      <img
+        src="../../../assets/right-arrow.png"
+        class="btn__quaternary__icon"
+        alt=""
+      />
+      <span class="btn__quaternary__text">send</span>
+    </button>
+  </div>
+</form>

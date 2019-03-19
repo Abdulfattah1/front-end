@@ -1,0 +1,28 @@
+<div class="post-box" *ngIf="isReady">
+  <div class="post-box__body">
+    <div class="user-info">
+      <div class="cycle__box mb-1">
+        <img src="../assets/man.png" alt="user photo" class="cycle__photo" />
+      </div>
+      <span class="user-info__text"> {{ user.firstName }}</span>
+
+      <div class="user-info__buttons">
+        <a routerLink="/" class="gap-1" (click)="test()">
+          <button class="btn btn__tertiary">
+            <span class="btn__text--small">Friends</span>
+          </button>
+        </a>
+        <a routerLink="/" class="gap-1">
+          <button class="btn btn__tertiary">
+            <span class="btn__text--small">Edit</span>
+          </button>
+        </a>
+        <a routerLink="/">
+          <button class="btn btn__tertiary">
+            <span class="btn__text--small">Events</span>
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

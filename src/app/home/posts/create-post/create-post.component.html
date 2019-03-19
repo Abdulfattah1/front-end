@@ -1,0 +1,103 @@
+<div class="post">
+  <form [formGroup]="formPost" (submit)="onSubmit()">
+    <div class="post-box">
+      <div class="post-box__header">
+        <span class="post-box__title"> Create Post</span>
+        <a class="post-box__setting post-box__setting--icon" href="#"></a>
+      </div>
+
+      <div class="post-box__body">
+        <div class="user-box">
+          <img
+            src="../../assets/man.png"
+            alt="user Photo"
+            class="user-box__photo"
+          />
+        </div>
+        <textarea
+          formControlName="textarea"
+          autoGrow
+          class="post-box__textarea"
+          name="post"
+          id="post"
+          placeholder="what's on your mind"
+        ></textarea>
+      </div>
+
+      <div class="post-box__body" *ngIf="imagePrev">
+        <div class="img-box">
+          <img [src]="imagePrev" class="post__img" alt="" />
+        </div>
+      </div>
+
+      <div class="post-box__footer">
+        <button
+          type="button"
+          class="btn btn__quaternary"
+          (click)="photoPicker.click()"
+        >
+          <img
+            src="../../../assets/image.png"
+            class="btn__quaternary__icon"
+            alt=""
+          />
+          <span class="btn__quaternary__text">photo</span>
+        </button>
+        <input
+          style="visibility: hidden;display: none"
+          type="file"
+          #photoPicker
+          (change)="onPickPhoto($event)"
+        />
+
+        <button
+          type="button"
+          class="btn btn__quaternary"
+          (click)="pdfPicker.click()"
+        >
+          <img
+            src="../../../assets/pdf.png"
+            class="btn__quaternary__icon"
+            alt=""
+          />
+          <span class="btn__quaternary__text">Pdf</span>
+        </button>
+        <input
+          style="visibility: hidden;display: none"
+          type="file"
+          #pdfPicker
+        />
+
+        <button
+          type="button"
+          class="btn btn__quaternary"
+          (click)="emojiPicker.click()"
+        >
+          <img
+            src="../../../assets/in-love.png"
+            class="btn__quaternary__icon"
+            alt=""
+          />
+          <span class="btn__quaternary__text">emoji</span>
+        </button>
+        <input
+          style="visibility: hidden;display: none"
+          type="file"
+          #emojiPicker
+        />
+        <button
+          type="submit"
+          class="btn btn__quaternary"
+          [disabled]="!formPost.valid"
+        >
+          <img
+            src="../../../assets/right-arrow.png"
+            class="btn__quaternary__icon"
+            alt=""
+          />
+          <span class="btn__quaternary__text">post</span>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

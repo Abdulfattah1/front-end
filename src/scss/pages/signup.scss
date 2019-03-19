@@ -1,0 +1,61 @@
+.signUp {
+  background-image: url("../assets/background.png");
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  &__cycle--1 {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: translateY(30%) translateX(-30%);
+  }
+
+  &__cycle--2 {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateY(-30%) translateX(+30%);
+  }
+
+  &__box {
+    position: relative;
+    backface-visibility: hidden;
+    background-size: cover;
+    position: absolute;
+    background-repeat: no-repeat;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $white;
+    width: 65vw;
+    min-height: 85vh;
+    border-radius: 1rem;
+    box-shadow: 0 0rem 5rem $black-3;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+    &__left {
+      -webkit-clip-path: ellipse(100% 50% at 0% 50%);
+      clip-path: ellipse(100% 50% at 0% 50%);
+      background-image: linear-gradient(
+        to bottom left,
+        $primary-color-1,
+        $primary-color-2
+      );
+
+      flex: 0 0 30%;
+    }
+    &__right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+    }
+  }
+}
+.overlay {
+}

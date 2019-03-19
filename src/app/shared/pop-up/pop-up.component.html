@@ -1,0 +1,24 @@
+<div class="model">
+  <div class="model__header">
+    <span class="model__title"> Likes </span>
+    <div class="model__close">
+      <a (click)="close()"><span>&times;</span></a>
+    </div>
+  </div>
+  <div class="model__body">
+    <div class="user-box mb-1" *ngFor="let item of content">
+      <img
+        src="../../../assets/man.png"
+        alt="user photo"
+        class="user-box__photo"
+      />
+      <div class="info">
+        <a href="#">
+          <span class="user-name"
+            >{{ item.firstName }} {{ item.lastName }}</span
+          >
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

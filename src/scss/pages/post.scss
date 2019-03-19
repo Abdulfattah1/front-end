@@ -1,0 +1,121 @@
+.post {
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  margin-right: 1.2rem;
+  margin-bottom: 1.2rem;
+
+  .user-box {
+    margin-bottom: 1rem;
+  }
+
+  .user-box__photo {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .user-info__buttons {
+    margin: 0;
+  }
+  .post-box__header {
+    height: 4rem;
+  }
+
+  .post-box__body {
+    overflow: hidden;
+  }
+
+  .post-box__footer {
+    border-bottom: 1px solid $gray-2;
+  }
+
+  .img-box {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &__img {
+    transform: rotate(90deg);
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.statistics {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .number {
+    text-decoration: none;
+    font-size: 1.3rem;
+    margin-right: 5px;
+    font-weight: 700;
+    color: $black-3;
+  }
+
+  .word {
+    text-transform: capitalize;
+    font-size: 1.3rem;
+    margin-right: 5px;
+    font-weight: 700;
+    color: $black-3;
+  }
+}
+
+.interact {
+  flex: 0.8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__item {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+  }
+  .number {
+    font-size: 1.4rem;
+    margin-right: 5px;
+    font-weight: 700;
+    color: $black-3;
+  }
+
+  .like {
+    align-self: center;
+    margin-right: 5px;
+  }
+
+  .word {
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    margin-right: 5px;
+    //font-weight: 700;
+    color: $black-3;
+  }
+
+  .word-1 {
+    text-transform: capitalize;
+    font-size: 1.55rem;
+    margin-right: 5px;
+    font-weight: 700;
+    color: $primary-color-1;
+  }
+}

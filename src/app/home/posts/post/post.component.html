@@ -1,0 +1,109 @@
+<div class="post">
+  <div class="post-box">
+    <div class="post-box__header">
+      <div class="user-info">
+        <div class="user-info__buttons">
+          <a routerLink="/" class="gap-1" (click)="test()">
+            <button class="btn btn__tertiary">
+              <span class="btn__text--small">save</span>
+            </button>
+          </a>
+          <a routerLink="/" class="gap-1">
+            <button class="btn btn__tertiary" *ngIf="auth">
+              <span class="btn__text--small" (click)="deletePost()"
+                >delete</span
+              >
+            </button>
+          </a>
+          <a routerLink="/">
+            <button class="btn btn__tertiary" *ngIf="auth">
+              <span class="btn__text--small" (click)="update()">update</span>
+            </button>
+          </a>
+        </div>
+      </div>
+      <a class="post-box__setting post-box__setting--icon" href="#"></a>
+    </div>
+
+    <div class="post-box__body flex-col align-items-start">
+      <div class="user-box">
+        <img
+          src="../../../assets/man.png"
+          alt="user photo"
+          class="user-box__photo"
+        />
+        <div class="info">
+          <a href="#">
+            <span class="user-name"
+              >{{ post.firstName }} {{ post.lastName }}</span
+            >
+          </a>
+          <span class="post-time">{{ TimeMessage }}</span>
+        </div>
+      </div>
+
+      <span class="post-text ">{{ post.textContent }}</span>
+    </div>
+
+    <div class="post-box__footer">
+      <div class="statistics">
+        <div class="div">
+          <input id="model-check" type="checkbox" #model_check />
+          <a (click)="openModel('likes')">
+            <span class="word" *ngIf="!you && post.NumberOfLikes === 0"
+              >no likes yet</span
+            >
+            <span class="number" *ngIf="post.NumberOfLikes != 0">{{
+              post.NumberOfLikes
+            }}</span>
+            <span class="word" *ngIf="post.NumberOfLikes === 1; else g"
+              >like</span
+            >
+            <ng-template #g>
+              <span class="word" *ngIf="post.NumberOfLikes > 1">likes</span>
+            </ng-template>
+          </a>
+        </div>
+        <div>
+          <a href="#">
+            <span class="number">100</span> <span class="word">comments</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="post-box__footer">
+      <div class="interact">
+        <button
+          class="interact__item"
+          (click)="like(post.postId)"
+          [disabled]="disabled"
+        >
+          <img
+            class="like"
+            src="../../../assets/like.gif.png"
+            alt="like post-box__setting--icon"
+          />
+          <span [ngClass]="likedClass">like</span>
+        </button>
+
+        <button
+          class="interact__item"
+          (click)="displayComment(post.postId)"
+          [disabled]="disabled"
+        >
+          <img
+            class="like"
+            src="../../../../assets/comment.png"
+            alt="like post-box__setting--icon"
+          />
+          <span class="word">Comment</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="comments" *ngIf="DisplayComment">
+      <app-comments [postId]="postId"></app-comments>
+    </div>
+  </div>
+</div>

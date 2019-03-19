@@ -1,0 +1,35 @@
+.create-comment {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comments {
+  padding: 1rem;
+  .form__control {
+    flex: 80%;
+  }
+  .user-box__photo {
+    width: 3rem !important;
+    height: 3rem !important;
+  }
+}
+
+.comment {
+  display: flex;
+  align-items: center;
+  .user-box__photo {
+    width: 3rem !important;
+    height: 3rem !important;
+  }
+
+  .info {
+    background-color: $gray-1;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .post-box__body {
+    padding: 0;
+    border-bottom: 0;
+  }
+}

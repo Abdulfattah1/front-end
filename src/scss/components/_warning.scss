@@ -1,0 +1,28 @@
+//wrong
+input.ng-invalid.ng-touched {
+  border: 1px solid #ff5a5a;
+}
+
+input.ng-invalid.ng-touched:focus {
+  box-shadow: 0 0 5px #ff5a5a;
+}
+
+.warning {
+  color: #ff5a5a;
+}
+
+.bg-warning {
+  background-color: #ff5a5a;
+}
+//success
+input.ng-valid.ng-touched {
+  border: 1px solid #3aaf9f;
+}
+
+input.ng-valid.ng-touched:focus {
+  box-shadow: 0 0 5px #3aaf9f;
+}
+
+.success {
+  color: #3aaf9f;
+}

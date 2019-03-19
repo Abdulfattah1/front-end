@@ -1,0 +1,82 @@
+<nav class="navbar navbar__primary">
+  <!--brand-->
+  <div class="navbar__brand">
+    <img src="../assets/brand.png" alt="facebook-brand" class="navbar__icon" />
+  </div>
+
+  <!--list-->
+  <div class="navbar__list">
+    <ul class="list">
+      <li class="list__item" *ngIf="isAuthentication">
+        <a href="#" class="list__link">
+          <div class="user-box">
+            <img
+              src="../assets/man.png"
+              alt="user photo"
+              class="user-box__photo"
+            />
+            <span class="user-box__text"> {{ user.firstName }} </span>
+          </div>
+        </a>
+      </li>
+      <li
+        class="list__item list__item--Separating"
+        *ngIf="isAuthentication"
+      ></li>
+      <li class="list__item">
+        <a href="#" class="list__link" *ngIf="isAuthentication"> Home </a>
+      </li>
+      <li
+        class="list__item list__item--Separating"
+        *ngIf="isAuthentication"
+      ></li>
+      <li class="list__item" *ngIf="isAuthentication">
+        <a class="list__link">
+          <div class="notifications">
+            <a href="#" class="notifications__icon">
+              <img src="../assets/friends.png" alt="friends" />
+            </a>
+
+            <a href="#" class="notifications__icon">
+              <img src="../assets/chat.png" alt="friends" />
+            </a>
+
+            <a href="#" class="notifications__icon">
+              <img src="../assets/notifications-button.png" alt="friends" />
+            </a>
+          </div>
+        </a>
+      </li>
+      <li
+        class="list__item list__item--Separating"
+        *ngIf="isAuthentication"
+      ></li>
+      <li class="list__item" *ngIf="isAuthentication">
+        <a
+          class="list__link exit"
+          *ngIf="isAuthentication"
+          (click)="onLogOut()"
+        >
+          <img src="../assets/sign-in.png" alt="signIn"
+        /></a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="navbar__search" *ngIf="isAuthentication">
+    <div class="search">
+      <span class="search__icon">
+        <img src="../../assets/search.png" alt="search-icon" />
+      </span>
+      <input type="text" class="search__input" placeholder="Search" />
+    </div>
+  </div>
+
+  <div *ngIf="!isAuthentication">
+    <button routerLink="/signin" class="btn btn__small btn__secondary mr-2">
+      <span class="btn__text btn__text--small">signin</span></button
+    ><button routerLink="/signup" class="btn btn__small btn__primary">
+      <span class="btn__text btn__text--small">sign up</span>
+    </button>
+  </div>
+</nav>

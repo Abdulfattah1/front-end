@@ -1,0 +1,34 @@
+<div class="edit-post">
+  <div class="edit-post__header">
+    <h1 class="edit-post__title">edit post</h1>
+    <div class="model__close">
+      <a (click)="close()"><span>&times;</span></a>
+    </div>
+  </div>
+
+  <div class="edit-post__body " *ngIf="displayEditForm">
+    <form class="flex flex-col" [formGroup]="editForm">
+      <textarea
+        formControlName="textContent"
+        autoGrow
+        class="post-box__textarea"
+        name="post"
+        id="post"
+        placeholder="textContent"
+      ></textarea>
+
+      <div class="user-info__buttons">
+        <a routerLink="/" class="gap-1" (click)="editPost()">
+          <button class="btn btn__tertiary">
+            <span class="btn__text--small">save</span>
+          </button>
+        </a>
+        <a routerLink="/" class="">
+          <button class="btn btn__tertiary">
+            <span class="btn__text--small" (click)="close()">cansel</span>
+          </button>
+        </a>
+      </div>
+    </form>
+  </div>
+</div>

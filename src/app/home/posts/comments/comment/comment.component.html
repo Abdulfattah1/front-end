@@ -1,0 +1,20 @@
+<div class="comment">
+  <div class="post-box__body flex-col align-items-start">
+    <div class="user-box">
+      <img
+        src="../../../assets/man.png"
+        alt="user photo"
+        class="user-box__photo"
+      />
+      <div class="info">
+        <a href="#">
+          <span class="user-name"
+            >{{ comment.firstName }} {{ comment.lastName }}
+          </span>
+        </a>
+        <span class="post-time">{{ TimeMessage }}</span>
+        <span class="post-text ">{{ comment.textContent }}</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+.list {
+  display: flex;
+  list-style: none;
+  align-items: center;
+
+  &__item {
+    cursor: pointer;
+    &:not(:last-child) {
+      margin-right: 2.4rem;
+    }
+
+    &--Separating {
+      font-size: 16px;
+      color: $black-1;
+      &::after {
+        color: $black-3;
+        font-size: 16px;
+        content: "|";
+      }
+    }
+  }
+
+  &__link {
+    text-transform: capitalize;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: $font-list;
+    color: $white;
+  }
+}
