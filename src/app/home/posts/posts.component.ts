@@ -36,6 +36,7 @@ export class PostsComponent implements OnInit {
         textContent: createdPost.textarea,
         postId: createdPost.postId,
         userId: this.user.id,
+        imageUrl: createdPost.imageUrl,
         dateOfPosting: Date.now(),
         NumberOfLikes: 0
       });

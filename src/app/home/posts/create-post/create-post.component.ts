@@ -22,7 +22,7 @@ export class CreatePostComponent implements OnInit {
         Validators.required,
         Validators.minLength(3)
       ]),
-      image: new FormControl(null, Validators.required)
+      image: new FormControl(null)
     });
   }
 
@@ -49,11 +49,17 @@ export class CreatePostComponent implements OnInit {
       if (data.success) {
         this.postservice.addPost.next({
           textarea: this.formPost.value.textarea,
-          postId: data.postId
+          postId: data.postId,
+          imageUrl: data.imageUrl || null
         });
         this.formPost.reset();
+        this.imagePrev = null;
       } else {
       }
     });
+  }
+
+  close() {
+    this.imagePrev = null;
   }
 }

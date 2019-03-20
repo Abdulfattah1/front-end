@@ -23,8 +23,10 @@
           placeholder="what's on your mind"
         ></textarea>
       </div>
-
-      <div class="post-box__body" *ngIf="imagePrev">
+      <div class="post-box__body flex-col" *ngIf="imagePrev">
+        <div class="model__close align-self-end">
+          <a (click)="close()"><span>&times;</span></a>
+        </div>
         <div class="img-box">
           <img [src]="imagePrev" class="post__img" alt="" />
         </div>

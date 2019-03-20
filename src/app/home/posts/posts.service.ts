@@ -2,8 +2,8 @@ import { Http, Headers } from "@angular/http";
 import { Injectable } from "@angular/core";
 import { Post } from "./post/post.model";
 import { Subject } from "rxjs";
-import { HttpClient } from '@angular/common/http';
-import {HttpHeaders} from "@angular/common/http"
+import { HttpClient } from "@angular/common/http";
+import { HttpHeaders } from "@angular/common/http";
 @Injectable()
 export class postService {
   postArray;
@@ -26,9 +26,17 @@ export class postService {
   }
 
   createPost(post) {
-    return this.http.post<any>("http://localhost:3000/posts/createPost", post, {
-      headers: this.getAuth()
-    });
+    console.log(post);
+    let formData = new FormData();
+    formData.append("textarea", post.textarea);
+    formData.append("image", post.image || null);
+    return this.http.post<any>(
+      "http://localhost:3000/posts/createPost",
+      formData,
+      {
+        headers: this.getAuth()
+      }
+    );
   }
 
   getAllPosts() {

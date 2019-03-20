@@ -43,6 +43,12 @@
       </div>
 
       <span class="post-text ">{{ post.textContent }}</span>
+
+      <div class="post-box__body" *ngIf="post.imageUrl">
+        <div class="img-box">
+          <img [src]="post.imageUrl" class="post__img" alt="" />
+        </div>
+      </div>
     </div>
 
     <div class="post-box__footer">

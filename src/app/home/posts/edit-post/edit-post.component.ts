@@ -52,7 +52,7 @@ export class EditPostComponent implements OnInit {
       textContent: this.editForm.value.textContent
     };
     this.postService.editPost(post).subscribe(Response => {
-      const data = Response.json();
+      const data = Response;
       if (data.success) {
         console.log("eddited");
         this.postService.sendBackEditInfo.next({
