@@ -1,7 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-
+import { HttpClientModule } from "@angular/common/http"
 import { AuthModule } from "./Auth/Auth.module";
 
 import { AppComponent } from "./app.component";
@@ -41,7 +41,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     ReactiveFormsModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    HttpClientModule
   ],
   exports: [],
   providers: [AuthService, AuthGuard],

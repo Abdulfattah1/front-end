@@ -39,7 +39,7 @@ export class PostComponent implements OnInit {
     this.post.dateOfPosting = this.TimeCulculation(this.post.dateOfPosting);
     this.postId = this.post.postId;
     this.postService.checkLike(this.postId).subscribe(Response => {
-      const data = Response.json();
+      const data = Response;
       if (data.message === "found") {
         this.you = true;
         this.likedClass = "word-1";
@@ -54,13 +54,13 @@ export class PostComponent implements OnInit {
     if (this.likedClass === "word") {
       this.disabled = true;
       this.postService.like(postId).subscribe(Response => {
-        const data = Response.json();
+        const data = Response;
         if (data.success) {
           this.you = true;
 
           this.likedClass = "word-1";
           this.postService.getNumberOfLikes(this.postId).subscribe(response => {
-            const data = response.json();
+            const data = response;
             if (data.success) {
               this.post.NumberOfLikes = data.count;
             }
@@ -74,12 +74,12 @@ export class PostComponent implements OnInit {
     } else {
       this.postService.disLike(postId).subscribe(Response => {
         this.disabled = true;
-        const data = Response.json();
+        const data = Response;
         if (data.success) {
           this.you = false;
           this.likedClass = "word";
           this.postService.getNumberOfLikes(this.postId).subscribe(response => {
-            const data = response.json();
+            const data = response;
             if (data.success) {
               this.post.NumberOfLikes = data.count;
             }
@@ -106,7 +106,7 @@ export class PostComponent implements OnInit {
       this.postService
         .deletePost(this.post.postId, this.post.userId)
         .subscribe(response => {
-          const data = response.json();
+          const data = response;
           if (data.success) {
             this.postService.deletePostEvent.next(this.postIndex);
             console.log("deleted");

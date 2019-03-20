@@ -2,6 +2,8 @@ import { Http, Headers } from "@angular/http";
 import { Injectable } from "@angular/core";
 import { Post } from "./post/post.model";
 import { Subject } from "rxjs";
+import { HttpClient } from '@angular/common/http';
+import {HttpHeaders} from "@angular/common/http"
 @Injectable()
 export class postService {
   postArray;
@@ -13,10 +15,10 @@ export class postService {
   openUpdateWindow = new Subject<any>(); //open edit popUp
   fillOutTheEditPost = new Subject<any>(); // to fill out the model with the information
   sendBackEditInfo = new Subject<any>(); //to send back the information of the post that we have just edited
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
 
   getAuth() {
-    const header = new Headers({
+    const header = new HttpHeaders({
       authorization: localStorage.getItem("token")
     });
 
@@ -24,18 +26,18 @@ export class postService {
   }
 
   createPost(post) {
-    return this.http.post("http://localhost:3000/posts/createPost", post, {
+    return this.http.post<any>("http://localhost:3000/posts/createPost", post, {
       headers: this.getAuth()
     });
   }
 
   getAllPosts() {
     this.http
-      .get("http://localhost:3000/posts/getAllPosts", {
+      .get<any>("http://localhost:3000/posts/getAllPosts", {
         headers: this.getAuth()
       })
       .subscribe(response => {
-        const data = response.json();
+        const data = response;
         if (data.success) {
           this.postArray = data;
           this.changeTheArrayOfPosts.next(this.postArray);
@@ -44,7 +46,7 @@ export class postService {
   }
 
   like(postId) {
-    return this.http.post(
+    return this.http.post<any>(
       "http://localhost:3000/posts/like",
       { postId: postId },
       { headers: this.getAuth() }
@@ -52,7 +54,7 @@ export class postService {
   }
 
   disLike(postId) {
-    return this.http.post(
+    return this.http.post<any>(
       "http://localhost:3000/posts/disLike",
       { postId: postId },
       { headers: this.getAuth() }
@@ -60,7 +62,7 @@ export class postService {
   }
 
   checkLike(postId) {
-    return this.http.post(
+    return this.http.post<any>(
       "http://localhost:3000/posts/checkLike",
       { postId: postId },
       { headers: this.getAuth() }
@@ -68,7 +70,7 @@ export class postService {
   }
 
   getNumberOfLikes(postId) {
-    return this.http.post(
+    return this.http.post<any>(
       "http://localhost:3000/posts/getNumberOfLikes",
       {
         postId: postId
@@ -78,7 +80,7 @@ export class postService {
   }
 
   getLikesWithNames(postId) {
-    return this.http.get(
+    return this.http.get<any>(
       "http://localhost:3000/posts/getLikesWithNames" + "?postId=" + postId,
       {
         headers: this.getAuth()
@@ -87,7 +89,7 @@ export class postService {
   }
 
   deletePost(postId: number, postUserId) {
-    return this.http.delete(
+    return this.http.delete<any>(
       "http://localhost:3000/posts/deletePost" + "?postId=" + postId,
       {
         headers: this.getAuth()
@@ -96,7 +98,7 @@ export class postService {
   }
 
   editPost(post: { postId: number; textContent: string }) {
-    return this.http.post("http://localhost:3000/posts/editPost", post, {
+    return this.http.post<any>("http://localhost:3000/posts/editPost", post, {
       headers: this.getAuth()
     });
   }

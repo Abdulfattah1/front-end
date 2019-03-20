@@ -45,7 +45,7 @@ export class CreatePostComponent implements OnInit {
   onSubmit() {
     const post = this.formPost.value;
     this.postservice.createPost(post).subscribe(response => {
-      const data = response.json();
+      const data = response;
       if (data.success) {
         this.postservice.addPost.next({
           textarea: this.formPost.value.textarea,
