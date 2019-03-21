@@ -15,7 +15,7 @@ export class PopUpComponent implements OnInit {
         this.postService
           .getLikesWithNames(Response.postId)
           .subscribe(result => {
-            const data = result.json();
+            const data = result;
             this.content = data.likes;
           });
       }

@@ -4,3 +4,14 @@
   <div class="home__middle"><app-posts></app-posts></div>
   <div class="home__right"><h1>right</h1></div>
 </div>
+
+<div
+class="search-results"
+infiniteScroll
+[infiniteScrollDistance]="1"
+[infiniteScrollThrottle]="50"
+[scrollWindow] = "true"
+(scrolled)="onScroll()"
+></div>
+
+<!-- <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading> -->

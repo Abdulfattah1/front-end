@@ -3,6 +3,8 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { HttpClientModule } from "@angular/common/http"
 import { AuthModule } from "./Auth/Auth.module";
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { NgxLoadingModule } from 'ngx-loading';
 
 import { AppComponent } from "./app.component";
 import { AuthService } from "./Auth/Auth.service";
@@ -42,7 +44,9 @@ const routes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    InfiniteScrollModule,
+    NgxLoadingModule.forRoot({})
   ],
   exports: [],
   providers: [AuthService, AuthGuard],

@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
-
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { NgxLoadingModule } from 'ngx-loading';
 import { UserInfoComponent } from "./user-info/user-info.component";
 import { Routes, RouterModule } from "@angular/router";
 import { HomeComponent } from "./home.component";
@@ -43,7 +44,9 @@ const routes: Routes = [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    InfiniteScrollModule,
+    NgxLoadingModule.forRoot({})
   ],
   exports: [RouterModule],
   providers: [homeService, postService, commentService]

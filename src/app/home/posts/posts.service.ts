@@ -15,7 +15,7 @@ export class postService {
   openUpdateWindow = new Subject<any>(); //open edit popUp
   fillOutTheEditPost = new Subject<any>(); // to fill out the model with the information
   sendBackEditInfo = new Subject<any>(); //to send back the information of the post that we have just edited
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getAuth() {
     const header = new HttpHeaders({
@@ -45,6 +45,17 @@ export class postService {
         headers: this.getAuth()
       })
       .subscribe(response => {
+        const data = response;
+        if (data.success) {
+          this.postArray = data;
+          this.changeTheArrayOfPosts.next(this.postArray);
+        }
+      });
+  }
+
+  getPosts(page, numberOfPosts) {
+    return this.http.get<any>("http://localhost:3000/posts/getPosts?page=" + page + "&number=" + numberOfPosts,
+      { headers: this.getAuth() }).subscribe(response => {
         const data = response;
         if (data.success) {
           this.postArray = data;

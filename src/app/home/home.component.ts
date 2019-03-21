@@ -10,12 +10,19 @@ import { postService } from "./posts/posts.service";
   styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
+  page = 0;
+  public loading = false;
   constructor(
     private homeService: homeService,
     private authService: AuthService,
     private postService: postService
   ) {}
   ngOnInit() {
-    this.postService.getAllPosts();
+    this.loading = true
+    this.postService.getPosts(0,3);
+  }
+
+  onScroll() {
+    this.postService.getPosts(++this.page,3);
   }
 }
