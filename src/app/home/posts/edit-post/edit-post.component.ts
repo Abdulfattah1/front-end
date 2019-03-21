@@ -25,9 +25,18 @@ export class EditPostComponent implements OnInit {
       $("body").css("overflow", "auto");
     });
 
-    this.postService.fillOutTheEditPost.subscribe(Response => {
+    this.postService.openUpdateWindow.subscribe(Response => {
+      // $("body").css("overflow", "hidden");
+      $(".colorOverlay").css({
+        visibility: "visible",
+        opacity: 0.7
+      });
+      $(".edit-post").css({
+        visibility: "visible",
+        opacity: 1
+      });
       this.editForm = new FormGroup({
-        textContent: new FormControl("null")
+        textContent: new FormControl(null)
       });
       this.displayEditForm = true;
       this.editForm.patchValue({

@@ -11,11 +11,10 @@ export class postService {
   addPost = new Subject<any>(); //to add post to the post array
   deletePostEvent = new Subject<any>(); //to delete a post from the post array
   openModal = new Subject<any>(); // to open the model
-  fillOutTheModel = new Subject<any>(); // to fill out the model with the information
   openUpdateWindow = new Subject<any>(); //open edit popUp
-  fillOutTheEditPost = new Subject<any>(); // to fill out the model with the information
   sendBackEditInfo = new Subject<any>(); //to send back the information of the post that we have just edited
-  constructor(private http: HttpClient) { }
+  openDeleteWindow = new Subject<any>();
+  constructor(private http: HttpClient) {}
 
   getAuth() {
     const header = new HttpHeaders({
@@ -29,7 +28,7 @@ export class postService {
     console.log(post);
     let formData = new FormData();
     formData.append("textarea", post.textarea);
-    formData.append("image", post.image || null);
+    formData.append("image", post.image || "");
     return this.http.post<any>(
       "http://localhost:3000/posts/createPost",
       formData,
@@ -54,8 +53,15 @@ export class postService {
   }
 
   getPosts(page, numberOfPosts) {
-    return this.http.get<any>("http://localhost:3000/posts/getPosts?page=" + page + "&number=" + numberOfPosts,
-      { headers: this.getAuth() }).subscribe(response => {
+    return this.http
+      .get<any>(
+        "http://localhost:3000/posts/getPosts?page=" +
+          page +
+          "&number=" +
+          numberOfPosts,
+        { headers: this.getAuth() }
+      )
+      .subscribe(response => {
         const data = response;
         if (data.success) {
           this.postArray = data;

@@ -10,7 +10,16 @@ export class PopUpComponent implements OnInit {
   content: [];
   constructor(private postService: postService) {}
   ngOnInit() {
-    this.postService.fillOutTheModel.subscribe(Response => {
+    this.postService.openModal.subscribe(Response => {
+      $(".model").css({
+        opacity: 1,
+        visibility: "visible"
+      });
+
+      $(".colorOverlay").css({
+        visibility: "visible",
+        opacity: 0.7
+      });
       if (Response.type === "likes") {
         this.postService
           .getLikesWithNames(Response.postId)

@@ -1,321 +1,314 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>{{ title }}</title>
-  </head>
-  <body class="signUp">
-    <!--cycle code-->
-    <div class="signUp__cycle--1">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        width="526px"
-        height="526px"
-      >
-        <path
-          fill-rule="evenodd"
-          fill="rgb(67, 184, 162)"
-          d="M263.000,0.000 C408.251,0.000 526.000,117.749 526.000,263.000 C526.000,408.251 408.251,526.000 263.000,526.000 C117.749,526.000 -0.000,408.251 -0.000,263.000 C-0.000,117.749 117.749,0.000 263.000,0.000 Z"
-        />
-      </svg>
-    </div>
-    <div class="signUp__cycle--2">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        width="526px"
-        height="526px"
-      >
-        <path
-          fill-rule="evenodd"
-          fill="rgb(67, 184, 162)"
-          d="M263.000,0.000 C408.251,0.000 526.000,117.749 526.000,263.000 C526.000,408.251 408.251,526.000 263.000,526.000 C117.749,526.000 -0.000,408.251 -0.000,263.000 C-0.000,117.749 117.749,0.000 263.000,0.000 Z"
-        />
-      </svg>
-    </div>
-    <!--cycle code-->
+<div class="colorOverlay" *ngIf="loading">
+  <div class="loader">Loading...</div>
+</div>
+<body class="signUp">
+  <!--cycle code-->
+  <div class="signUp__cycle--1">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      width="526px"
+      height="526px"
+    >
+      <path
+        fill-rule="evenodd"
+        fill="rgb(67, 184, 162)"
+        d="M263.000,0.000 C408.251,0.000 526.000,117.749 526.000,263.000 C526.000,408.251 408.251,526.000 263.000,526.000 C117.749,526.000 -0.000,408.251 -0.000,263.000 C-0.000,117.749 117.749,0.000 263.000,0.000 Z"
+      />
+    </svg>
+  </div>
+  <div class="signUp__cycle--2">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      width="526px"
+      height="526px"
+    >
+      <path
+        fill-rule="evenodd"
+        fill="rgb(67, 184, 162)"
+        d="M263.000,0.000 C408.251,0.000 526.000,117.749 526.000,263.000 C526.000,408.251 408.251,526.000 263.000,526.000 C117.749,526.000 -0.000,408.251 -0.000,263.000 C-0.000,117.749 117.749,0.000 263.000,0.000 Z"
+      />
+    </svg>
+  </div>
+  <!--cycle code-->
 
-    <div class="signUp__box mt-5 mb-5">
-      <div
-        class="signUp__box__left flex justify-content-center align-items-center"
-      >
+  <div class="signUp__box mt-5 mb-5">
+    <div
+      class="signUp__box__left flex justify-content-center align-items-center"
+    >
       <a routerLink="/signin">
-        <button class="btn btn__secondary" >
+        <button class="btn btn__secondary">
           <span class="btn__text">sign in</span>
         </button>
       </a>
-      </div>
+    </div>
 
-      <div class="signUp__box__right">
-        <div class="heading-1 mt-3 mb-3 align-self-center ">
-          create an account
-        </div>
-        <div class="signUp__form">
-          <form class="form" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-            <div class="mb-1">
-              <div class="form__inline" [formGroupName]="'name'">
-                <div class="form__group mr-6">
-                  <input
-                    type="text"
-                    placeholder="First Name"
-                    class="form__control form__control--1"
-                    name="firstName"
-                    formControlName="firstName"
-                  />
-                </div>
-                <div class="form__group">
-                  <input
-                    placeholder="Last Name"
-                    type="text"
-                    class="form__control form__control--1"
-                    name="lastName"
-                    formControlName="lastName"
-                  />
-                </div>
+    <div class="signUp__box__right">
+      <div class="heading-1 mt-3 mb-3 align-self-center ">
+        create an account
+      </div>
+      <div class="signUp__form">
+        <form class="form" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+          <div class="mb-1">
+            <div class="form__inline" [formGroupName]="'name'">
+              <div class="form__group mr-6">
+                <input
+                  type="text"
+                  placeholder="First Name"
+                  class="form__control form__control--1"
+                  name="firstName"
+                  formControlName="firstName"
+                />
               </div>
-              <div
-                class="mb-1 flex justify-content-center flex-col"
-                *ngIf="signUpForm.get('name').invalid"
+              <div class="form__group">
+                <input
+                  placeholder="Last Name"
+                  type="text"
+                  class="form__control form__control--1"
+                  name="lastName"
+                  formControlName="lastName"
+                />
+              </div>
+            </div>
+            <div
+              class="mb-1 flex justify-content-center flex-col"
+              *ngIf="signUpForm.get('name').invalid"
+            >
+              <span
+                *ngIf="
+                  (signUpForm.get('name.firstName').errors?.required ||
+                    signUpForm.get('name.lastName').errors?.required) &&
+                  (signUpForm.get('name.firstName').touched &&
+                    signUpForm.get('name.lastName').touched)
+                "
+                class="heading-2 warning mr-2 mb-1"
+                >the first name and last name are required !!
+              </span>
+
+              <span
+                *ngIf="
+                  (signUpForm.get('name.firstName').errors?.minlength ||
+                    signUpForm.get('name.firstName').errors?.maxlength ||
+                    (signUpForm.get('name.lastName').errors?.minlength ||
+                      signUpForm.get('name.lastName').errors?.maxlength)) &&
+                  (signUpForm.get('name.firstName').touched ||
+                    signUpForm.get('name.firstName').touched)
+                "
+                class="heading-2 warning mr-2"
+                >the name should be more than 2 characters and less that 30
+              </span>
+            </div>
+          </div>
+
+          <div class="form__group">
+            <input
+              placeholder="Email"
+              type="email"
+              class="form__control form__control--2 mb-1"
+              name="email"
+              formControlName="email"
+            />
+
+            <div class="flex justify-content-center flex-col">
+              <span
+                *ngIf="
+                  signUpForm.get('email').errors?.required &&
+                  signUpForm.get('email').touched
+                "
+                class="heading-2 warning"
               >
+                email is required
+              </span>
+
+              <span
+                *ngIf="
+                  signUpForm.get('email').errors?.email &&
+                  signUpForm.get('email').touched
+                "
+                class="heading-2 warning"
+              >
+                invalid Email
+              </span>
+
+              <span
+                *ngIf="
+                  signUpForm.get('email').errors?.emailIsUsed &&
+                  signUpForm.get('email').touched
+                "
+                class="heading-2 warning"
+              >
+                this email is already used
+              </span>
+            </div>
+          </div>
+          <div formGroupName="Password">
+            <div class="form__group">
+              <input
+                placeholder="Password"
+                type="password"
+                class="form__control form__control--2 mb-1"
+                name="password"
+                formControlName="password"
+              />
+              <div class="flex justify-content-center flex-col">
                 <span
                   *ngIf="
-                    (signUpForm.get('name.firstName').errors?.required ||
-                      signUpForm.get('name.lastName').errors?.required) &&
-                    (signUpForm.get('name.firstName').touched &&
-                      signUpForm.get('name.lastName').touched)
+                    signUpForm.get('Password.password').errors?.required &&
+                    signUpForm.get('Password.password').touched
                   "
-                  class="heading-2 warning mr-2 mb-1"
-                  >the first name and last name are required !!
+                  class="heading-2 warning"
+                >
+                  password is required
                 </span>
 
                 <span
                   *ngIf="
-                    (signUpForm.get('name.firstName').errors?.minlength ||
-                      signUpForm.get('name.firstName').errors?.maxlength ||
-                      (signUpForm.get('name.lastName').errors?.minlength ||
-                        signUpForm.get('name.lastName').errors?.maxlength)) &&
-                    (signUpForm.get('name.firstName').touched ||
-                      signUpForm.get('name.firstName').touched)
+                    signUpForm.get('Password.password').errors?.pattern &&
+                    signUpForm.get('Password.password').touched
                   "
-                  class="heading-2 warning mr-2"
-                  >the name should be more than 2 characters and less that 30
+                  class="heading-2 warning"
+                >
+                  it must have at least 8 characters , one letter & one number
                 </span>
               </div>
             </div>
 
             <div class="form__group">
               <input
-                placeholder="Email"
-                type="email"
+                placeholder="Confirm password"
+                type="password"
                 class="form__control form__control--2 mb-1"
-                name="email"
-                formControlName="email"
+                name="confirmPassword"
+                formControlName="confirmPassword"
               />
 
               <div class="flex justify-content-center flex-col">
                 <span
                   *ngIf="
-                    signUpForm.get('email').errors?.required &&
-                    signUpForm.get('email').touched
+                    signUpForm.get('Password.confirmPassword').errors
+                      ?.required &&
+                    signUpForm.get('Password.confirmPassword').touched
                   "
-                  class="heading-2 warning"
+                  class="heading-2 warning mb-1"
                 >
-                  email is required
+                  Confirm password is required
                 </span>
 
                 <span
                   *ngIf="
-                    signUpForm.get('email').errors?.email &&
-                    signUpForm.get('email').touched
+                    signUpForm.get('Password').errors?.invalid &&
+                    signUpForm.get('Password').touched &&
+                    signUpForm.get('Password.password').valid &&
+                    signUpForm.get('Password.confirmPassword').valid
                   "
                   class="heading-2 warning"
                 >
-                  invalid Email
-                </span>
-
-                
-                <span
-                  *ngIf="
-                    signUpForm.get('email').errors?.emailIsUsed &&
-                    signUpForm.get('email').touched
-                  "
-                  class="heading-2 warning"
-                >
-                  this email is already used
-                </span>
-              </div>
-            </div>
-            <div formGroupName="Password">
-              <div class="form__group">
-                <input
-                  placeholder="Password"
-                  type="password"
-                  class="form__control form__control--2 mb-1"
-                  name="password"
-                  formControlName="password"
-                />
-                <div class="flex justify-content-center flex-col">
-                  <span
-                    *ngIf="
-                      signUpForm.get('Password.password').errors?.required &&
-                      signUpForm.get('Password.password').touched
-                    "
-                    class="heading-2 warning"
-                  >
-                    password is required
-                  </span>
-
-                  <span
-                    *ngIf="
-                      signUpForm.get('Password.password').errors?.pattern &&
-                      signUpForm.get('Password.password').touched
-                    "
-                    class="heading-2 warning"
-                  >
-                    it must have at least 8 characters , one letter & one number
-                  </span>
-                </div>
-              </div>
-
-              <div class="form__group">
-                <input
-                  placeholder="Confirm password"
-                  type="password"
-                  class="form__control form__control--2 mb-1"
-                  name="confirmPassword"
-                  formControlName="confirmPassword"
-                />
-
-                <div class="flex justify-content-center flex-col">
-                  <span
-                    *ngIf="
-                      signUpForm.get('Password.confirmPassword').errors
-                        ?.required &&
-                      signUpForm.get('Password.confirmPassword').touched
-                    "
-                    class="heading-2 warning mb-1"
-                  >
-                    Confirm password is required
-                  </span>
-
-                  <span
-                    *ngIf="
-                      (signUpForm.get('Password').errors
-                        ?.invalid &&
-                      signUpForm.get('Password').touched) && signUpForm.get('Password.password').valid && signUpForm.get('Password.confirmPassword').valid 
-                    "
-                    class="heading-2 warning"
-                  >
                   Password does not match
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div class="form__group">
-              <h2 class="heading-2 mb-2 text-center">Birthday</h2>
-              <div class="form__inline" formGroupName="Birthday">
-                <div class="form__group">
-                  <input
-                    placeholder="day"
-                    type="number"
-                    min="1"
-                    max="30"
-                    id="day"
-                    class="form__control form__control--3"
-                    name="day"
-                    formControlName="day"
-                  />
-                </div>
-                <div class="form__group">
-                  <input
-                    placeholder="month"
-                    type="number"
-                    min="1"
-                    max="12"
-                    id="moth"
-                    class="form__control form__control--3"
-                    name="month"
-                    formControlName="month"
-                  />
-                </div>
-                <div class="form__group">
-                  <input
-                    placeholder="year"
-                    type="number"
-                    min="1970"
-                    max="2019"
-                    id="year"
-                    class="form__control form__control--3"
-                    name="year"
-                    formControlName="year"
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="form__group text-center">
-              <div class="form__radio-group">
-                <input
-                  type="radio"
-                  class="form__radio-input"
-                  value="male"
-                  id="male"
-                  formControlName="gender"
-                />
-                <label for="male" class="form__radio-label">
-                  <span class="form__radio-button "></span> male
-                </label>
-              </div>
-
-              <div class="form__radio-group">
-                <input
-                  type="radio"
-                  class="form__radio-input"
-                  value="famele"
-                  id="famele"
-                  formControlName="gender"
-                />
-                <label for="famele" class="form__radio-label">
-                  <span class="form__radio-button"></span> famele
-                </label>
-              </div>
-            </div>
-            <div class="form__group text-center mt-4">
-              <button
-                type="submit"
-                class="btn btn__primary"
-                [disabled]="!signUpForm.valid"
-              >
-                <span class="btn__text"> sign up </span>
-              </button>
-              <div class="flex justify-content-center flex-col mt-2">
-                <span
-                  class="heading-2 warning"
-                  *ngIf="!signUpForm.valid && signUpForm.touched; else valid"
-                >
-                  you must fill out all the required fields
                 </span>
-                <ng-template #valid>
-                  <span *ngIf="signUpForm.touched" class="heading-2 success">
-                    ready to submit
-                  </span>
-                </ng-template>
               </div>
             </div>
-          </form>
-        </div>
-        <span *ngIf="success;else fail" class="heading-2" [ngClass]="class">
-          {{message}}
-        </span>
-        <ng-template #fail>
-            <span *ngIf="!success" class="heading-2" [ngClass]="class">
-                {{message}}
-              </span>
-        </ng-template>
+          </div>
+          <div class="form__group">
+            <h2 class="heading-2 mb-2 text-center">Birthday</h2>
+            <div class="form__inline" formGroupName="Birthday">
+              <div class="form__group">
+                <input
+                  placeholder="day"
+                  type="number"
+                  min="1"
+                  max="30"
+                  id="day"
+                  class="form__control form__control--3"
+                  name="day"
+                  formControlName="day"
+                />
+              </div>
+              <div class="form__group">
+                <input
+                  placeholder="month"
+                  type="number"
+                  min="1"
+                  max="12"
+                  id="moth"
+                  class="form__control form__control--3"
+                  name="month"
+                  formControlName="month"
+                />
+              </div>
+              <div class="form__group">
+                <input
+                  placeholder="year"
+                  type="number"
+                  min="1970"
+                  max="2019"
+                  id="year"
+                  class="form__control form__control--3"
+                  name="year"
+                  formControlName="year"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form__group text-center">
+            <div class="form__radio-group">
+              <input
+                type="radio"
+                class="form__radio-input"
+                value="male"
+                id="male"
+                formControlName="gender"
+              />
+              <label for="male" class="form__radio-label">
+                <span class="form__radio-button "></span> male
+              </label>
+            </div>
 
+            <div class="form__radio-group">
+              <input
+                type="radio"
+                class="form__radio-input"
+                value="famele"
+                id="famele"
+                formControlName="gender"
+              />
+              <label for="famele" class="form__radio-label">
+                <span class="form__radio-button"></span> famele
+              </label>
+            </div>
+          </div>
+          <div class="form__group text-center mt-4">
+            <button
+              type="submit"
+              class="btn btn__primary"
+              [disabled]="!signUpForm.valid"
+            >
+              <span class="btn__text"> sign up </span>
+            </button>
+            <div class="flex justify-content-center flex-col mt-2">
+              <span
+                class="heading-2 warning"
+                *ngIf="!signUpForm.valid && signUpForm.touched; else valid"
+              >
+                you must fill out all the required fields
+              </span>
+              <ng-template #valid>
+                <span *ngIf="signUpForm.touched" class="heading-2 success">
+                  ready to submit
+                </span>
+              </ng-template>
+            </div>
+          </div>
+        </form>
       </div>
+      <span *ngIf="success; else fail" class="heading-2" [ngClass]="class">
+        {{ message }}
+      </span>
+      <ng-template #fail>
+        <span *ngIf="!success" class="heading-2" [ngClass]="class">
+          {{ message }}
+        </span>
+      </ng-template>
     </div>
-  </body>
-</html>
+  </div>
+</body>

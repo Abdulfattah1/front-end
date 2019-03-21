@@ -18,6 +18,7 @@ import { CommentComponent } from "./posts/comments/comment/comment.component";
 import { CreateCommentComponent } from "./posts/comments/create-comment/create-comment.component";
 import { commentService } from "./posts/comments/comment.service";
 import { EditPostComponent } from './posts/edit-post/edit-post.component';
+import { DeletePostComponent } from './posts/delete-post/delete-post.component';
 
 const routes: Routes = [
   {
@@ -37,7 +38,8 @@ const routes: Routes = [
     CreateCommentComponent,
     CommentsComponent,
     CommentComponent,
-    EditPostComponent
+    EditPostComponent,
+    DeletePostComponent
   ],
   imports: [
     RouterModule.forChild(routes),

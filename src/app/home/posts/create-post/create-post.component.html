@@ -1,4 +1,7 @@
 <div class="post">
+  <div class="colorOverlay1" *ngIf="loading">
+    <div class="loader">Loading...</div>
+  </div>
   <form [formGroup]="formPost" (submit)="onSubmit()">
     <div class="post-box">
       <div class="post-box__header">

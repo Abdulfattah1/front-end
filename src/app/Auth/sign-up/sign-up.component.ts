@@ -24,7 +24,7 @@ export class SignUpComponent implements OnInit {
   success: boolean;
   message: string;
   class: string;
-
+  loading: boolean;
   // strongRegexPassword = new RegExp(
   //   "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
   // );
@@ -39,7 +39,7 @@ export class SignUpComponent implements OnInit {
     this.init();
   }
   onSubmit() {
-    console.log(this.signUpForm);
+    this.loading = true;
     this.user = new User(this.signUpForm.value);
     this.AuthService.signUp(this.user).subscribe(
       data => {
@@ -51,17 +51,17 @@ export class SignUpComponent implements OnInit {
 
           setTimeout(() => {
             this.routes.navigate(["/signin"]);
+            this.loading = false;
           }, 2000);
         } else {
           this.class = "warning";
           this.success = false;
           this.message = "the email is already exist";
+          this.loading = false;
         }
-        console.log(data);
       },
       err => {
         this.success = false;
-        console.log(err);
       }
     );
   }

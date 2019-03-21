@@ -23,10 +23,13 @@ export class PostsComponent implements OnInit {
   ngOnInit() {
     this.displayUpdate = false;
     this.postService.changeTheArrayOfPosts.subscribe(Response => {
-      this.posts = [...this.posts,...Response.posts]
+      this.posts = [...this.posts, ...Response.posts];
     });
     this.postService.deletePostEvent.subscribe(postIndexDeleted => {
       this.posts.splice(postIndexDeleted, 1);
+      if (this.posts.length <= 2) {
+        this.postService.getPosts(0, 3);
+      }
     });
     this.user = this.authService.getUser();
 
@@ -46,39 +49,6 @@ export class PostsComponent implements OnInit {
 
     this.postService.sendBackEditInfo.subscribe(editedPost => {
       this.posts[editedPost.postIndex].textContent = editedPost.textContent;
-    });
-
-    this.postService.openModal.subscribe(response => {
-      console.log(response);
-      $("body").css("overflow", "hidden");
-      $(".model").css({
-        opacity: 1,
-        visibility: "visible"
-      });
-
-      $(".colorOverlay").css({
-        visibility: "visible",
-        opacity: 0.7
-      });
-
-      $(".model").click(e => {
-        //e.stopPropagation;
-      });
-      this.postService.fillOutTheModel.next(response);
-    });
-
-    this.postService.openUpdateWindow.subscribe(Response => {
-      this.displayUpdate = true;
-      $("body").css("overflow", "hidden");
-      $(".colorOverlay").css({
-        visibility: "visible",
-        opacity: 0.7
-      });
-      $(".edit-post").css({
-        visibility: "visible",
-        opacity: 1
-      });
-      this.postService.fillOutTheEditPost.next(Response);
     });
   }
 }

@@ -3,6 +3,8 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { AuthService } from "../Auth.service";
 import { EventEmitter } from "events";
 import { Router } from "@angular/router";
+
+import * as $ from "jquery";
 @Component({
   selector: "app-sign-in",
   templateUrl: "./sign-in.component.html",
@@ -23,6 +25,7 @@ export class SignInComponent implements OnInit {
     //this.test();
   }
 
+  loading: boolean;
   ngOnInit() {
     this.signInForm.patchValue({
       email: "abdulfattah.khudari@gmail.com",
@@ -34,10 +37,12 @@ export class SignInComponent implements OnInit {
         this.ClassStyle = "success";
         this.message = "signed in correctly";
         this.router.navigate(["/"]);
+        this.loading = false;
       } else {
         this.signedIn = false;
         this.ClassStyle = "warning";
         this.message = "either the email or the password is not correct";
+        this.loading = false;
       }
     });
 
@@ -52,8 +57,8 @@ export class SignInComponent implements OnInit {
       }
     );*/
   }
-
   onSubmit() {
+    this.loading = true;
     this.authService.signIn(this.signInForm.value);
   }
 

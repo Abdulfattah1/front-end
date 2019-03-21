@@ -1,0 +1,35 @@
+<div class="delete-post">
+  <div class="delete-post__header">
+    <h1 class="delete-post__title">delete post</h1>
+    <div class="model__close">
+      <a (click)="close()"><span>&times;</span></a>
+    </div>
+  </div>
+  <div class="delete-post__body">
+    <span class="delete-post__content">
+      you can do so many things insted of deleting it
+    </span>
+    <div class="user-info__buttons">
+      <a routerLink="/" class="gap-1" (click)="delete()">
+        <button class="btn btn__tertiary">
+          <span class="btn__text--small">delete</span>
+        </button>
+      </a>
+      <a routerLink="/" class="gap-1">
+        <button class="btn btn__tertiary">
+          <span class="btn__text--small" (click)="edit()">Edit</span>
+        </button>
+      </a>
+      <a routerLink="/" class="gap-1">
+        <button class="btn btn__tertiary">
+          <span class="btn__text--small" (click)="hide()">Hide</span>
+        </button>
+      </a>
+      <a routerLink="/" class="gap-1">
+        <button class="btn btn__tertiary">
+          <span class="btn__text--small" (click)="close()">cansel</span>
+        </button>
+      </a>
+    </div>
+  </div>
+</div>

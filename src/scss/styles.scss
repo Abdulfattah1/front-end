@@ -3,6 +3,7 @@
 @import "abstracts/variables";
 
 @import "base/animations";
+@import "base/spinners";
 @import "base/base";
 @import "base/typography";
 @import "base/utilities";
@@ -21,6 +22,7 @@
 @import "components/model";
 @import "components/comments";
 @import "components/edit-post.scss";
+@import "components/delete-post.scss";
 
 @import "pages/app";
 @import "pages/home";

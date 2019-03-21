@@ -42,7 +42,9 @@
         </div>
       </div>
 
-      <span class="post-text ">{{ post.textContent }}</span>
+      <span *ngIf="post.textContent" class="post-text ">{{
+        post.textContent
+      }}</span>
 
       <div class="post-box__body" *ngIf="post.imageUrl">
         <div class="img-box">
