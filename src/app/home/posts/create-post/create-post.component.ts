@@ -18,10 +18,7 @@ export class CreatePostComponent implements OnInit {
 
   ngOnInit() {
     this.formPost = new FormGroup({
-      textarea: new FormControl(null, [
-        Validators.required,
-        Validators.minLength(3)
-      ]),
+      textarea: new FormControl(null,Validators.min(1)),
       image: new FormControl(null)
     });
   }

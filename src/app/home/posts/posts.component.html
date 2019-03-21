@@ -1,10 +1,13 @@
-<div class="create-post"><app-create-post> </app-create-post></div>
+<div class="create-post">
+  <app-create-post> </app-create-post>
+</div>
+
 <div class="posts">
-  <app-post
-    *ngFor="let post of posts; let i = index"
-    [post]="post"
-    [postIndex]="i"
-  ></app-post>
-  <div class="popUp"><app-pop-up></app-pop-up></div>
-  <div><app-edit-post></app-edit-post></div>
+  <app-post *ngFor="let post of posts; let i = index" [post]="post" [postIndex]="i"></app-post>
+  <div class="popUp">
+    <app-pop-up></app-pop-up>
+  </div>
+  <div>
+    <app-edit-post></app-edit-post>
+  </div>
 </div>

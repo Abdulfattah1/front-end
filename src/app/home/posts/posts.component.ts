@@ -16,12 +16,14 @@ export class PostsComponent implements OnInit {
   constructor(
     private postService: postService,
     private authService: AuthService
-  ) {}
+  ) {
+    this.posts = [];
+  }
 
   ngOnInit() {
     this.displayUpdate = false;
     this.postService.changeTheArrayOfPosts.subscribe(Response => {
-      this.posts = Response.posts;
+      this.posts = [...this.posts,...Response.posts]
     });
     this.postService.deletePostEvent.subscribe(postIndexDeleted => {
       this.posts.splice(postIndexDeleted, 1);

@@ -9,11 +9,20 @@ import {
 
 @Component({
   selector: "app-test",
-  templateUrl: "./test.component.html",
+  template: `
+  `,
   styleUrls: ["./test.component.css"]
 })
 export class TestComponent implements OnInit {
   constructor() {}
+
+  onScroll() {
+    console.log('scrolled!!');
+  }
+
+  onScrollUp() {
+    console.log('scrolled up!!');
+  }
 
   formGroup: FormGroup;
   validationArray;
