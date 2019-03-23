@@ -6,6 +6,7 @@ export class commentService implements OnInit {
   link = "http://localhost:3000/comments/";
 
   addCommentEvent = new Subject<any>();
+  openSettings = new Subject();
   constructor(private http: Http) {}
 
   ngOnInit() {}

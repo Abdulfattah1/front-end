@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
+import { commentService } from "../comment.service";
 
 @Component({
   selector: "app-comment",
@@ -9,10 +10,15 @@ export class CommentComponent implements OnInit {
   @Input() postId;
   @Input() comment;
   TimeMessage: string;
-  constructor() {}
+  settings:boolean ;
+  constructor(private commentService:commentService) {}
 
   ngOnInit() {
     this.TimeCulculation(this.comment.dateOfPosting);
+  }
+
+  toggleSetting() {
+    this.settings = !this.settings;
   }
 
   TimeCulculation(date: string) {

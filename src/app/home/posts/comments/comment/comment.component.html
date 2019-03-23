@@ -15,7 +15,8 @@
         <span class="post-time">{{ TimeMessage }}</span>
         <span class="post-text ">{{ comment.textContent }}</span>
       </div>
-        <a class="ml-1 post-box__setting post-box__setting--icon" href="#" appDropdown></a>
-    </div>
+        <a class="ml-1 post-box__setting post-box__setting--icon" (click) = "toggleSetting()"></a>
+        <app-settings *ngIf="settings" [settings] = 'commentSetings' [type] = 'comments'></app-settings>
+      </div>
   </div>
 </div>
