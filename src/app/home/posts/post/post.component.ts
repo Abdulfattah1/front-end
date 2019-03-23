@@ -108,20 +108,6 @@ export class PostComponent implements OnInit {
       textContent: this.post.textContent,
       postIndex: this.postIndex
     });
-
-    // if (confirm("Are you sure you want to delete this post?")) {
-    //   this.postService
-    //     .deletePost(this.post.postId, this.post.userId)
-    //     .subscribe(response => {
-    //       const data = response;
-    //       if (data.success) {
-    //         this.postService.deletePostEvent.next(this.postIndex);
-    //         console.log("deleted");
-    //       } else {
-    //         console.log("not deleted");
-    //       }
-    //     });
-    // }
   }
 
   update() {
