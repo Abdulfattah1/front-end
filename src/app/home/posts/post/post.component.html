@@ -58,23 +58,23 @@
         <div class="div">
           <input id="model-check" type="checkbox" #model_check />
           <a (click)="openModel('likes')">
-            <span class="word" *ngIf="!you && post.NumberOfLikes === 0"
+            <span class="word" *ngIf="!you && post.numberOfLikes === 0"
               >no likes yet</span
             >
-            <span class="number" *ngIf="post.NumberOfLikes != 0">{{
-              post.NumberOfLikes
+            <span class="number" *ngIf="post.numberOfLikes != 0">{{
+              post.numberOfLikes
             }}</span>
-            <span class="word" *ngIf="post.NumberOfLikes === 1; else g"
+            <span class="word" *ngIf="post.numberOfLikes === 1; else g"
               >like</span
             >
             <ng-template #g>
-              <span class="word" *ngIf="post.NumberOfLikes > 1">likes</span>
+              <span class="word" *ngIf="post.numberOfLikes > 1">likes</span>
             </ng-template>
           </a>
         </div>
         <div>
           <a href="#">
-            <span class="number">100</span> <span class="word">comments</span>
+            <span class="number">{{post.numberOfComments}}</span> <span class="word">comments</span>
           </a>
         </div>
       </div>

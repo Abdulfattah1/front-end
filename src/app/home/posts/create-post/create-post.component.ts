@@ -46,6 +46,7 @@ export class CreatePostComponent implements OnInit {
     if (!post.image) post.image = "";
     this.postservice.createPost(post).subscribe(response => {
       const data = response;
+      this.loading = false;
       if (data.success) {
         this.postservice.addPost.next({
           textarea: this.formPost.value.textarea,
@@ -54,9 +55,8 @@ export class CreatePostComponent implements OnInit {
         });
         this.formPost.reset();
         this.imagePrev = "";
-        this.loading = false;
+
       } else {
-        this.loading = false;
       }
     });
   }

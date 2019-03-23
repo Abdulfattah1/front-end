@@ -1,4 +1,6 @@
 import { NgModule } from "@angular/core";
+import { sharedModel } from "../shared/shared.model";
+
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { NgxLoadingModule } from 'ngx-loading';
 import { UserInfoComponent } from "./user-info/user-info.component";
@@ -48,6 +50,7 @@ const routes: Routes = [
     FormsModule,
     CommonModule,
     InfiniteScrollModule,
+    sharedModel,
     NgxLoadingModule.forRoot({})
   ],
   exports: [RouterModule],

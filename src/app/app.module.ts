@@ -15,6 +15,7 @@ import { NavbarComponent } from "./navbar/navbar.component";
 import { AuthGuard } from "./guards/auth.guard";
 import { PopUpComponent } from "./shared/pop-up/pop-up.component";
 import { TestComponent } from './test/test.component';
+import { sharedModel } from "./shared/shared.model";
 //import { homeModule } from "./home/home.module";
 
 const routes: Routes = [
@@ -34,7 +35,6 @@ const routes: Routes = [
     component:TestComponent
   }
 ];
-
 @NgModule({
   declarations: [AppComponent, NavbarComponent, TestComponent],
   imports: [
@@ -46,6 +46,7 @@ const routes: Routes = [
     HttpModule,
     HttpClientModule,
     InfiniteScrollModule,
+    sharedModel,
     NgxLoadingModule.forRoot({})
   ],
   exports: [],

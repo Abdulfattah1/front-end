@@ -43,7 +43,8 @@ export class PostsComponent implements OnInit {
         userId: this.user.id,
         imageUrl: createdPost.imageUrl,
         dateOfPosting: Date.now(),
-        NumberOfLikes: 0
+        numberOfLikes: 0,
+        numberOfComments:0
       });
     });
 

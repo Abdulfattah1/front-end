@@ -4,6 +4,7 @@ import { Post } from "./post.model";
 import { TimeCulculation } from "src/app/shared/timeCalculation";
 import { Observable, observable, Observer } from "rxjs";
 import { AuthService } from "src/app/Auth/Auth.service";
+import { commentService } from "../comments/comment.service";
 
 @Component({
   selector: "app-post",
@@ -25,7 +26,8 @@ export class PostComponent implements OnInit {
   @Input() postIndex: number;
   constructor(
     private postService: postService,
-    private authService: AuthService
+    private authService: AuthService,
+    private commentService: commentService
   ) {
     this.likedClass = "word";
     this.disabled = false;
@@ -48,6 +50,10 @@ export class PostComponent implements OnInit {
         this.likedClass = "word";
       }
     });
+
+    this.commentService.addCommentEvent.subscribe(comment => {
+      this.post.numberOfComments += 1;
+    })
   }
 
   like(postId: number) {
@@ -62,7 +68,7 @@ export class PostComponent implements OnInit {
           this.postService.getNumberOfLikes(this.postId).subscribe(response => {
             const data = response;
             if (data.success) {
-              this.post.NumberOfLikes = data.count;
+              this.post.numberOfLikes = data.count;
             }
           });
         } else {
@@ -81,7 +87,7 @@ export class PostComponent implements OnInit {
           this.postService.getNumberOfLikes(this.postId).subscribe(response => {
             const data = response;
             if (data.success) {
-              this.post.NumberOfLikes = data.count;
+              this.post.numberOfLikes = data.count;
             }
           });
         } else {
